@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAKAMOONA HUB</title>
+
+<link rel="icon" type="image/x-icon" href="logo.png">
+
+<style type="text/css">
+body {
+  cursor: url('http://www.rw-designer.com/cursor-extern.php?id=235241'), auto;}
+</style>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{
+  background:#181818;
+  color:#fff;
+}
+
+/* AGE GATE */
+.age-gate{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url('age back.jpg') no-repeat center center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+}
+.age-gate button{
+  margin:10px;
+  padding:15px 30px;
+  font-size:18px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.age-yes{
+  background:#28a745;
+  color:white;
+}
+.age-no{
+  background:#dc3545;
+  color:white;
+}
+
+header{
+  text-align:center;
+  padding:20px;
+}
+header h1{
+  font-size:40px;
+}
+header p{
+  color:#929292;
+}
+.nav-buttons{
+  margin-top:15px;
+}
+.nav-buttons button{
+  margin:5px;
+  padding:10px 20px;
+  background:#222;
+  color:rgb(113, 250, 209);
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}
+.nav-buttons button:hover{
+  background:#444;
+}
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.card{
+  background:#1a1a1a;
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.3s;
+}
+.card:hover{
+  transform:scale(1.05);
+}
+.thumbnail{
+  width:100%;
+  height:150px;
+  background:#333;
+}
+.card-content{
+  padding:10px;
+}
+.card-content h3{
+  margin-bottom:10px;
+}
+.buttons{
+  display:flex;
+  justify-content:center;
+}
+.buttons button{
+  padding:5px 10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.play{
+  background:#ffffff;
+  color:rgb(0, 0, 0);
+}
+.play:hover{
+  background:#808080;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- AGE VERIFICATION -->
+<div class="age-gate" id="ageGate">
+  <h2>Are you 18+?</h2>
+  <div>
+    <button class="age-no" onclick="exitSite()">Under 18</button>
+    <button class="age-yes" onclick="enterSite()">18+</button>
+  </div>
+</div>
+
+<header>
+  <h1>WELCOME TO BAKAMOONA HUB</h1>
+  <p>you can watch videos and share with others</p>
+  <div class="nav-buttons">
+  
+    <button onclick="goPhotos()">Photos</button>
+  </div>
+</header>
+
+<div class="container" id="videoContainer">
+</div>
+
+<script>
+// DATA (EDIT THIS PART)
+const videos = [
+  {title:"BEAUTIFUL COLOMBO GF", thumb:"1.png", link:"https://pornxnow.me/beautiful-colombo-gf/"},
+  {title:"Manushi Nangi Leak", thumb:"2.png", link:"https://pornxnow.me/beautiful-lanka-girl-riding/"},
+  {title:"lanakan girl showing boobs and teasing", thumb:"3.jpg", link:"https://www.eporner.com/video-dcDpENVmWKs/beautiful-busty-chubby-sri-lankan-girlfriend-showing-her-big-boobs-and-teasing/"},
+  {title:"COLOMBO GF BOOBS SHOWING", thumb:"4.png", link:"https://pornxnow.me/sexy-lanka-girl-boobs/"},
+  {title:"NEW MODELING AKKA LEAK", thumb:"5.png", link:"https://pornxnow.me/new-modeling-akka-leak-jilhub-sexy-ashi-fuck-with-producer/"},
+  {title:"chubby girl blowjob", thumb:"6.png", link:"https://pornxnow.me/beautiful-chubby-girl-blowjob/"},
+  {title:"sri lankan sex new", thumb:"7.png", link:"https://pornxnow.me/sri-lanka-sex-new/"},
+  {title:"sl valentines couple 2", thumb:"8.png", link:"https://pornxnow.me/sl-valentines-couple-2/"},
+  {title:"lankan sexy nangi fuck", thumb:"9.png", link:"https://pornxnow.me/lanka-sexy-nangi-fuck/"},
+  {title:"sexy tiktok akkage leak", thumb:"10.png", link:"https://pornxnow.me/sexy-tiktok-akkage-leak/"}
+];
+
+const container = document.getElementById("videoContainer");
+
+videos.forEach(v => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  card.innerHTML = `
+    <img class="thumbnail" src="${v.thumb}">
+    <div class="card-content">
+      <h3>${v.title}</h3>
+      <div class="buttons">
+        <button class="play" onclick="playVideo('${v.link}')">Play</button>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(card);
+});
+
+// FUNCTIONS
+function playVideo(link){
+  window.location.href = link;
+}
+
+function goOther(){
+  window.location.href = "other.html";
+}
+
+function goHome(){
+  window.location.href = "index.html";
+}
+
+function goVideos(){
+  window.location.href = "videos.html";
+}
+
+function goPhotos(){
+  window.location.href = "photos.html";
+}
+
+// AGE GATE FUNCTIONS
+function enterSite(){
+  document.getElementById("ageGate").style.display = "none";
+}
+
+function exitSite(){
+  window.location.href = "https://www.google.com";
+}
+</script>
+
+</body>
+</html>
